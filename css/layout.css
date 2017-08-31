@@ -2,11 +2,11 @@ h1 {
     text-align: center;
   }
   
-  #image-container {
+#image-container {
     display: flex;
     justify-content: space-around;
   }
   
-  #image-container img {
+#image-container img {
     height: 250px;
   }

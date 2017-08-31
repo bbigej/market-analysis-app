@@ -7,6 +7,7 @@ productArray = [];
 
 //constructor function for the products
 var Product = function(imageFile) {
+  this.name = name;
   this.imageFile = imageFile;
   this.numberOfVotes = 0;
   this.voteCounter = function() {
@@ -46,6 +47,8 @@ function showImages() {
 function recordClick(event) {
   var imageSource = event.target.src;
   console.log("Image Clicked: "+imageSource);
+  this.voteCounter(this.imageFile);
+  console.log(this.numberofVotes);
 }
 
 //shows the images once the rest of the page loads
@@ -55,6 +58,3 @@ window.addEventListener("load", showImages);
 var ranker = {
 
 }
-
-
-  .addEventListener("click", this.voteCounter);

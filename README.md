@@ -51,6 +51,15 @@ WEB DESIGN *****
 
 
 
+    click photo
+    photo logs another tally
+    new images load
+    display results
+
+
+
+
+
 
 
 

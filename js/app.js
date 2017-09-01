@@ -3,7 +3,7 @@
 var imageNames = ["bag.jpg", "banana.jpg", "boots.jpg", "chair.jpg", "cthulhu.jpg", "dragon.jpg",
 "pen.jpg", "scissors.jpg", "shark.jpg", "sweep.jpg", "unicorn.jpg", "usb.jpg", "water_can.jpg", "wine_glass.jpg"];
 
-productArray = [];
+var productArray = [];
 
 //constructor function for the products
 var Product = function(imageFile) {
@@ -45,10 +45,23 @@ function showImages() {
 
 //function called to log clicks
 function recordClick(event) {
+  var index = 0;
   var imageSource = event.target.src;
+  var imageNodes = document.getElementsByTagName("img")[0];
+  var imageNodes2 = document.getElementsByTagName("img")[1];
+  var imageNodes3 = document.getElementsByTagName("img")[2];
+  var partialFileName = imageSource.split("images/")[1];
   console.log(imageSource.split("images/")[1]);
-  this.voteCounter(this.imageFile);
-  console.log(this.numberofVotes);
+  do {
+    index++
+ } while (partialFileName !== productArray[index].imageFile);
+ productArray[index].voteCounter();
+ console.log(productArray[index].numberOfVotes);
+var sectionNode = document.getElementById("image-container");
+sectionNode.removeChild(imageNodes);
+sectionNode.removeChild(imageNodes2);
+sectionNode.removeChild(imageNodes3);
+showImages();
 }
 
 //shows the images once the rest of the page loads

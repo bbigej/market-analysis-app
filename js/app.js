@@ -1,14 +1,14 @@
 
 //names of image files
-var imageNames = ["bag.jpg", "banana.jpg", "boots.jpg", "chair.jpg", "cthulhu.jpg", "dragon.jpg",
-"pen.jpg", "scissors.jpg", "shark.jpg", "sweep.jpg", "unicorn.jpg", "usb.jpg", "water_can.jpg", "wine_glass.jpg"];
+var productNames = ["bag", "banana", "boots", "chair", "cthulhu", "dragon",
+"pen", "scissors", "shark", "sweep", "unicorn", "usb", "water_can", "wine_glass"];
 
 var productArray = [];
 
 //constructor function for the products
-var Product = function(imageFile) {
-  this.name = name;
-  this.imageFile = imageFile;
+var Product = function(productName) {
+  this.name = productName;
+  this.imageFile = productName + ".jpg"
   this.numberOfVotes = 0;
   this.voteCounter = function() {
       this.numberOfVotes = this.numberOfVotes + 1;
@@ -16,8 +16,8 @@ var Product = function(imageFile) {
 }
 
 function createProducts() {
-  for (var index = 0; index < imageNames.length; index++)
-    productArray.push(new Product(imageNames[index]));
+  for (var index = 0; index < productNames.length; index++)
+    productArray.push(new Product(productNames[index]));
 }
 
 createProducts();
@@ -51,12 +51,15 @@ function recordClick(event) {
   var imageNodes2 = document.getElementsByTagName("img")[1];
   var imageNodes3 = document.getElementsByTagName("img")[2];
   var partialFileName = imageSource.split("images/")[1];
-  console.log(imageSource.split("images/")[1]);
+ // console.log(imageSource.split("images/")[1]);
+
   do {
     index++
  } while (partialFileName !== productArray[index].imageFile);
+
  productArray[index].voteCounter();
- console.log(productArray[index].numberOfVotes);
+ console.log(productArray[index].name)
+ console.log("Number of votes so far: " + productArray[index].numberOfVotes);
 var sectionNode = document.getElementById("image-container");
 sectionNode.removeChild(imageNodes);
 sectionNode.removeChild(imageNodes2);

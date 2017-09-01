@@ -36,17 +36,17 @@ function addImage(imageFileName) {
 //function to render images to the page
 function showImages() {
   var index = Math.floor(Math.random() * 14)
-  addImage("images/"+imageNames[index]);
+  addImage("images/"+productArray[index].imageFile);
   index = Math.floor(Math.random() * 14)
-  addImage("images/"+imageNames[index]);
+  addImage("images/"+productArray[index].imageFile);
   index = Math.floor(Math.random() * 14)
-  addImage("images/"+imageNames[index]);
+  addImage("images/"+productArray[index].imageFile);
 }
 
 //function called to log clicks
 function recordClick(event) {
   var imageSource = event.target.src;
-  console.log("Image Clicked: "+imageSource);
+  console.log(imageSource.split("images/")[1]);
   this.voteCounter(this.imageFile);
   console.log(this.numberofVotes);
 }

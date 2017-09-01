@@ -52,8 +52,10 @@ WEB DESIGN *****
 
 
     click photo
-    photo logs another tally
+    photo logs another tally:
+    +1 on that photo on click
     new images load
+    repeat 15 times total
     display results
 
 

@@ -11,6 +11,16 @@ h1 {
     height: 250px;
   }
 
-  ul li {
+ul li {
     margin-left: 500px;
+  }
+
+#myProgress {
+    width: 100%;
+    background-color: rgba(187, 160, 202, 1);
+  }
+#myBar {
+    width: 1%;
+    height: 30px;
+    background-color: rgba(135, 37, 91, 1);
   }

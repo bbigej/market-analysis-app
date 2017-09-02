@@ -76,6 +76,7 @@ function recordClick(event) {
   else {
     showImages();
   }
+  move();
 }
 
 //function that adds a list of the results
@@ -89,6 +90,14 @@ function showResults() {
     listItem.innerHTML = productArray[index].name + ": " + productArray[index].numberOfVotes + " votes.";
     uList.appendChild(listItem);
   }
+}
+
+var width = 1;
+
+function move() {
+  var elem = document.getElementById("myBar"); 
+  width = width + 7;
+  elem.style.width = width + '%'; 
 }
 
 //shows the images once the rest of the page loads

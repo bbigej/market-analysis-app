@@ -1,6 +1,6 @@
 
 //names of image files
-var productNames = ["bag", "banana", "boots", "chair", "cthulhu", "dragon",
+var productNames = ["boots", "banana", "bag", "chair", "cthulhu", "dragon",
 "pen", "scissors", "shark", "sweep", "unicorn", "usb", "water_can", "wine_glass"];
 
 var productArray = [];
@@ -43,28 +43,35 @@ function showImages() {
   addImage("images/"+productArray[index].imageFile);
 }
 
+var fifteenVoteTracker = 0;
+
 //function called to log clicks
 function recordClick(event) {
   var index = 0;
   var imageSource = event.target.src;
+  var partialFileName = imageSource.split("images/")[1];
   var imageNodes = document.getElementsByTagName("img")[0];
   var imageNodes2 = document.getElementsByTagName("img")[1];
   var imageNodes3 = document.getElementsByTagName("img")[2];
-  var partialFileName = imageSource.split("images/")[1];
- // console.log(imageSource.split("images/")[1]);
-
+ 
   do {
     index++
- } while (partialFileName !== productArray[index].imageFile);
+  } while (partialFileName !== productArray[index].imageFile);
 
  productArray[index].voteCounter();
- console.log(productArray[index].name)
+ console.log("Product name: " +productArray[index].name)
  console.log("Number of votes so far: " + productArray[index].numberOfVotes);
-var sectionNode = document.getElementById("image-container");
-sectionNode.removeChild(imageNodes);
-sectionNode.removeChild(imageNodes2);
-sectionNode.removeChild(imageNodes3);
-showImages();
+  var sectionNode = document.getElementById("image-container");
+  sectionNode.removeChild(imageNodes);
+  sectionNode.removeChild(imageNodes2);
+  sectionNode.removeChild(imageNodes3);
+  fifteenVoteTracker += 1
+  if (fifteenVoteTracker == 15) {
+    document.getElementById("button-container").innerHTML ="<input type=\"button\" value=\"Show results!\" onClick=\"showResults()\">"
+  }
+  else {
+    showImages();
+  }
 }
 
 //shows the images once the rest of the page loads

@@ -10,3 +10,7 @@ h1 {
 #image-container img {
     height: 250px;
   }
+
+  ul li {
+    margin-left: 500px;
+  }

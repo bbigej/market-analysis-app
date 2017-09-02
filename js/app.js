@@ -80,7 +80,15 @@ function recordClick(event) {
 
 //function that adds a list of the results
 function showResults() {
-  
+  var body = document.getElementById("body");
+  var uList = document.createElement("ul");
+  body.appendChild(uList);
+
+  for (var index = 0; index < productArray.length; index++) {
+    var listItem = document.createElement("li");
+    listItem.innerHTML = productArray[index].name + ": " + productArray[index].numberOfVotes + " votes.";
+    uList.appendChild(listItem);
+  }
 }
 
 //shows the images once the rest of the page loads

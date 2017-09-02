@@ -15,6 +15,7 @@ var Product = function(productName) {
   }
 }
 
+//fills array with Products
 function createProducts() {
   for (var index = 0; index < productNames.length; index++)
     productArray.push(new Product(productNames[index]));
@@ -43,9 +44,11 @@ function showImages() {
   addImage("images/"+productArray[index].imageFile);
 }
 
+//this will track how many times the user has voted
 var fifteenVoteTracker = 0;
 
-//function called to log clicks
+//function to find the product image in the array that matches the partial image url,
+// then increase the vote count of that Product. After this is done 15 times, button will appear
 function recordClick(event) {
   var index = 0;
   var imageSource = event.target.src;
@@ -67,11 +70,17 @@ function recordClick(event) {
   sectionNode.removeChild(imageNodes3);
   fifteenVoteTracker += 1
   if (fifteenVoteTracker == 15) {
-    document.getElementById("button-container").innerHTML ="<input type=\"button\" value=\"Show results!\" onClick=\"showResults()\">"
+    document.getElementById("button-container").innerHTML ="<input type=\"button\" value=\"Show results!\" id=\"listButton\">"
+    document.getElementById("listButton").addEventListener("click", showResults);
   }
   else {
     showImages();
   }
+}
+
+//function that adds a list of the results
+function showResults() {
+  
 }
 
 //shows the images once the rest of the page loads

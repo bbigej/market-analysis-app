@@ -15,16 +15,8 @@ ul li {
     font-weight: bold;
 }
 
-li::first-letter {
-    text-transform: uppercase;
-}
-
 img {
     border: 3px solid rgba(209, 200, 225, 1);
-}
-
-img:hover {
-    border: 3px solid rgba(135, 37, 91, 1);
 }
 
 #myProgress {
@@ -34,3 +26,11 @@ img:hover {
 #myBar {
     background-color: rgba(135, 37, 91, 1);
   }
+
+li::first-letter {
+    text-transform: uppercase;
+}
+
+img:hover {
+    border: 3px solid rgba(135, 37, 91, 1);
+}

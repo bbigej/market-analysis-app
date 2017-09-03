@@ -90,7 +90,7 @@ function showResults() {
 
   for (var index = 0; index < productArray.length; index++) {
     var listItem = document.createElement("li");
-    listItem.innerHTML = productArray[index].name + ": <span class=\"voteNumber\">" + productArray[index].numberOfVotes + " votes</span>";
+    listItem.innerHTML = productArray[index].name + ": <span class=\"voteNumber\">" + productArray[index].numberOfVotes + " votes.</span>";
     uList.appendChild(listItem);
   }
 }

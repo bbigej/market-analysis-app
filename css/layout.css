@@ -20,7 +20,8 @@ ul li {
     background-color: rgba(187, 160, 202, 1);
   }
 #myBar {
-    width: 1%;
+    width: 0%;
     height: 30px;
     background-color: rgba(135, 37, 91, 1);
+    margin-top: 5px;
   }

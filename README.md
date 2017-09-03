@@ -30,9 +30,9 @@ FUNCTIONALITY *****
 
     *****-Progress bar
 
-    -user may continue voting, but on next vote hide list votes and only display it again after 15 more votes
+    *****-Visual feedback on choice, so they know actions are being logged
 
-    -Visual feedback on choice, so they know actions are being logged
+    -user may continue voting, but on next vote hide list votes and only display it again after 15 more votes
 
     -3 images different
 

@@ -92,7 +92,7 @@ function showResults() {
   }
 }
 
-var width = 1;
+var width = 0;
 
 function move() {
   var elem = document.getElementById("myBar"); 
@@ -104,6 +104,4 @@ function move() {
 window.addEventListener("load", showImages);
 
 //ranker object to manage all the attributes and behaviors around a visitor's product-ranking experience
-var ranker = {
-
-}
+var ranker = {}

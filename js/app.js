@@ -7,11 +7,11 @@ var productArray = [];
 
 //constructor function for the products
 var Product = function(productName) {
-  this.name = productName;
+  this.label = productName;
   this.imageFile = productName + ".jpg";
-  this.numberOfVotes = 0;
+  this.y = 0;
   this.voteCounter = function() {
-      this.numberOfVotes += 1;
+      this.y += 1;
   }
 }
 
@@ -65,8 +65,8 @@ function recordClick(event) {
   } while (partialFileName !== productArray[index].imageFile);
 
   productArray[index].voteCounter();
-  console.log("Product name: " +productArray[index].name);
-  console.log("Number of votes so far: " + productArray[index].numberOfVotes);
+  console.log("Product name: " +productArray[index].label);
+  console.log("Number of votes so far: " + productArray[index].y);
   var sectionNode = document.getElementById("image-container");
   sectionNode.removeChild(imageNodes);
   sectionNode.removeChild(imageNodes2);
@@ -74,7 +74,7 @@ function recordClick(event) {
   fifteenVoteTracker += 1;
   if (fifteenVoteTracker == 15) {
     document.getElementById("button-container").innerHTML ="<input type=\"button\" value=\"Show results!\" id=\"listButton\">";
-    document.getElementById("listButton").addEventListener("click", showResults);
+    document.getElementById("listButton").addEventListener("click", createChart);
   }
   else {
     showImages();
@@ -88,11 +88,11 @@ function showResults() {
   var uList = document.createElement("ul");
   body.appendChild(uList);
 
-  for (var index = 0; index < productArray.length; index++) {
-    var listItem = document.createElement("li");
-    listItem.innerHTML = productArray[index].name + ": <span class=\"voteNumber\">" + productArray[index].numberOfVotes + " votes.</span>";
-    uList.appendChild(listItem);
-  }
+  // for (var index = 0; index < productArray.length; index++) {
+  //   var listItem = document.createElement("li");
+  //   listItem.innerHTML = productArray[index].label + ": <span class=\"voteNumber\">" + productArray[index].y + " votes.</span>";
+  //   uList.appendChild(listItem);
+  // }
 }
 
 var width = 0;

@@ -8,7 +8,7 @@ var productArray = [];
 //constructor function for the products
 var Product = function(productName) {
   this.name = productName;
-  this.imageFile = productName + ".jpg"
+  this.imageFile = productName + ".jpg";
   this.numberOfVotes = 0;
   this.voteCounter = function() {
       this.numberOfVotes = this.numberOfVotes + 1;
@@ -38,10 +38,14 @@ function addImage(imageFileName) {
 function showImages() {
   var index = Math.floor(Math.random() * 14)
   addImage("images/"+productArray[index].imageFile);
-  index = Math.floor(Math.random() * 14)
-  addImage("images/"+productArray[index].imageFile);
-  index = Math.floor(Math.random() * 14)
-  addImage("images/"+productArray[index].imageFile);
+  do {
+  var index2 = Math.floor(Math.random() * 14);
+  } while (index2 == index);
+  addImage("images/"+productArray[index2].imageFile);
+  do {
+  var index3 = Math.floor(Math.random() * 14);
+  } while (index3 == index2 || index3 == index);
+  addImage("images/"+productArray[index3].imageFile);
 }
 
 //this will track how many times the user has voted
@@ -62,15 +66,15 @@ function recordClick(event) {
   } while (partialFileName !== productArray[index].imageFile);
 
  productArray[index].voteCounter();
- console.log("Product name: " +productArray[index].name)
+ console.log("Product name: " +productArray[index].name);
  console.log("Number of votes so far: " + productArray[index].numberOfVotes);
   var sectionNode = document.getElementById("image-container");
   sectionNode.removeChild(imageNodes);
   sectionNode.removeChild(imageNodes2);
   sectionNode.removeChild(imageNodes3);
-  fifteenVoteTracker += 1
+  fifteenVoteTracker += 1;
   if (fifteenVoteTracker == 15) {
-    document.getElementById("button-container").innerHTML ="<input type=\"button\" value=\"Show results!\" id=\"listButton\">"
+    document.getElementById("button-container").innerHTML ="<input type=\"button\" value=\"Show results!\" id=\"listButton\">";
     document.getElementById("listButton").addEventListener("click", showResults);
   }
   else {

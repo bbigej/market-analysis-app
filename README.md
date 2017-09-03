@@ -32,10 +32,9 @@ FUNCTIONALITY *****
 
     *****-Visual feedback on choice, so they know actions are being logged
 
+    *****-3 images different
+
     -user may continue voting, but on next vote hide list votes and only display it again after 15 more votes
-
-    -3 images different
-
 
     -(tip) A single ranker object to manage all the attributes and behaviors around a visitor's product-ranking experience.
     -bug: productNames[0] errors in the recordClick event listener

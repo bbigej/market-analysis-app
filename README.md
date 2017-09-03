@@ -1,13 +1,20 @@
 # market-analysis-app
 
-Bryan Bigej
+by Bryan Bigej
 
-The Market Anaylsis Voting App
+*The Market Anaylsis Voting App*
 
-Voters choose their favorite products.
+In this class assignment, we were instructed to created a product voting web app that let's potential consumers choose
+their favorite product from among 3 product options by clicking on the photo of that product. The results are 
+then displayed if the voter presses the button that appears after 15 votes.
 
-Citations: code for progress bar (some of it has been modified) taken from:
+*Citations:* 
+
+-code for progress bar (some of it has been modified) taken from:
 https://www.w3schools.com/howto/howto_js_progressbar.asp
+
+-Some code was taken and in most cases modified from the examples demonstrated by the instuctor in class. 
+See github examples for class 10.
 
 
 FUNCTIONALITY *****
@@ -34,7 +41,7 @@ FUNCTIONALITY *****
 
     *****-3 images different
 
-    -user may continue voting, but on next vote hide list votes and only display it again after 15 more votes
+    ???-user may continue voting, but on next vote hide list votes and only display it again after 15 more votes  ???
 
     -(tip) A single ranker object to manage all the attributes and behaviors around a visitor's product-ranking experience.
     -bug: productNames[0] errors in the recordClick event listener

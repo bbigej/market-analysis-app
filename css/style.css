@@ -26,3 +26,11 @@ img {
 img:hover {
     border: 3px solid rgba(135, 37, 91, 1);
 }
+
+#myProgress {
+    background-color: rgba(187, 160, 202, 1);
+  }
+
+#myBar {
+    background-color: rgba(135, 37, 91, 1);
+  }

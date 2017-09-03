@@ -11,18 +11,18 @@ var Product = function(productName) {
   this.imageFile = productName + ".jpg";
   this.numberOfVotes = 0;
   this.voteCounter = function() {
-      this.numberOfVotes = this.numberOfVotes + 1;
+      this.numberOfVotes += 1;
   }
 }
 
-//fills array with Products
+//fills array with products
 function createProducts() {
-  for (var index = 0; index < productNames.length; index++)
+  for (var index = 0; index < productNames.length; index++) {
     productArray.push(new Product(productNames[index]));
+  }
 }
 
 createProducts();
-
 
 //function to create image elements, console.log clicks and append them to the section element
 function addImage(imageFileName) {
@@ -33,10 +33,9 @@ function addImage(imageFileName) {
   container.appendChild(image);
 }
 
-
 //function to render images to the page
 function showImages() {
-  var index = Math.floor(Math.random() * 14)
+  var index = Math.floor(Math.random() * 14);
   addImage("images/"+productArray[index].imageFile);
   do {
   var index2 = Math.floor(Math.random() * 14);
@@ -65,9 +64,9 @@ function recordClick(event) {
     index++
   } while (partialFileName !== productArray[index].imageFile);
 
- productArray[index].voteCounter();
- console.log("Product name: " +productArray[index].name);
- console.log("Number of votes so far: " + productArray[index].numberOfVotes);
+  productArray[index].voteCounter();
+  console.log("Product name: " +productArray[index].name);
+  console.log("Number of votes so far: " + productArray[index].numberOfVotes);
   var sectionNode = document.getElementById("image-container");
   sectionNode.removeChild(imageNodes);
   sectionNode.removeChild(imageNodes2);
@@ -98,9 +97,10 @@ function showResults() {
 
 var width = 0;
 
+//function to manage the progress bar
 function move() {
   var elem = document.getElementById("myBar"); 
-  width = width + 7;
+  width += 7;
   elem.style.width = width + '%'; 
 }
 

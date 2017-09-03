@@ -60,9 +60,9 @@ function recordClick(event) {
   var imageNodes2 = document.getElementsByTagName("img")[1];
   var imageNodes3 = document.getElementsByTagName("img")[2];
  
-  do {
+  while (partialFileName !== productArray[index].imageFile) {
     index++
-  } while (partialFileName !== productArray[index].imageFile);
+  }
 
   productArray[index].voteCounter();
   console.log("Product name: " +productArray[index].label);

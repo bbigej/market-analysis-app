@@ -1,4 +1,5 @@
 var createChart = function () {
+  document.getElementById('chartContainer').style.visibility = 'visible';
   var chart = new CanvasJS.Chart("chartContainer", {
 		theme: "theme2",  // theme1
 		title:{

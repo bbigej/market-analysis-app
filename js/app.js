@@ -73,26 +73,15 @@ function recordClick(event) {
   sectionNode.removeChild(imageNodes3);
   fifteenVoteTracker += 1;
   if (fifteenVoteTracker == 15) {
-    document.getElementById("button-container").innerHTML ="<input type=\"button\" value=\"Show results!\" id=\"listButton\">";
+    document.getElementById("button-container").innerHTML ="<input type=\"button\" value=\"Show results!\" id=\"listButton\">"
+    + "<input type=\"button\" value=\"Keep voting!\" id=\"reset-button\">";
     document.getElementById("listButton").addEventListener("click", createChart);
+    document.getElementById("reset-button").addEventListener("click", keepVoting);   
   }
   else {
     showImages();
   }
   move();
-}
-
-//function that adds a list of the results
-function showResults() {
-  var body = document.getElementById("body");
-  var uList = document.createElement("ul");
-  body.appendChild(uList);
-
-  // for (var index = 0; index < productArray.length; index++) {
-  //   var listItem = document.createElement("li");
-  //   listItem.innerHTML = productArray[index].label + ": <span class=\"voteNumber\">" + productArray[index].y + " votes.</span>";
-  //   uList.appendChild(listItem);
-  // }
 }
 
 var width = 0;
@@ -102,6 +91,23 @@ function move() {
   var elem = document.getElementById("myBar"); 
   width += 7;
   elem.style.width = width + '%'; 
+}
+
+function keepVoting() {
+  fifteenVoteTracker = 0;
+   showImages();
+    document.getElementById('listButton').style.visibility = 'hidden';
+    document.getElementById('reset-button').style.visibility = 'hidden';
+    document.getElementById('chartContainer').style.visibility = 'hidden';
+    if (fifteenVoteTracker == fifteenVoteTracker + 15) {
+      console.log(fifteenVoteTracker)
+      console.log("haha")
+// //     document.getElementById('listButton').style.visibility = 'visible';
+// //     document.getElementById('reset-button').style.visibility = 'visible';
+     } else {
+//   showImages();
+    } 
+
 }
 
 //shows the images once the rest of the page loads

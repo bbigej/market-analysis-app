@@ -19,15 +19,9 @@ See github examples for class 10.
 -code for the chart taken from https://canvasjs.com/
 
 
-
-
 Class 11 functionality*****
 
 Link to John's repo in assignment
-
-As a marketer I want a reset button so that I can have the game start over for a new user but continue aggregating data to make comparisons across a group of consumers… So I can sell stuff and make $$$$$$.
-
-
 
 FUNCTIONALITY *****
 

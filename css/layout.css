@@ -2,20 +2,6 @@ h1 {
     text-align: center;
   }
 
-ul li {
-    margin-left: 475px;
-    width: 175px;
-  }
-
-li {
-  border: 1px solid;
-  list-style-type: none;
-}
-
-.voteNumber {
-  float: right;
-}
-
 #myProgress {
     width: 100%;
   }

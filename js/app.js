@@ -94,20 +94,12 @@ function move() {
 }
 
 function keepVoting() {
+  width = 0;
   fifteenVoteTracker = 0;
    showImages();
     document.getElementById('listButton').style.visibility = 'hidden';
     document.getElementById('reset-button').style.visibility = 'hidden';
     document.getElementById('chartContainer').style.visibility = 'hidden';
-    if (fifteenVoteTracker == fifteenVoteTracker + 15) {
-      console.log(fifteenVoteTracker)
-      console.log("haha")
-// //     document.getElementById('listButton').style.visibility = 'visible';
-// //     document.getElementById('reset-button').style.visibility = 'visible';
-     } else {
-//   showImages();
-    } 
-
 }
 
 //shows the images once the rest of the page loads

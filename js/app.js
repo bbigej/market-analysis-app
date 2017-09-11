@@ -11,18 +11,18 @@ var Product = function(productName) {
   this.imageFile = productName + ".jpg";
   this.y = 0;
   this.voteCounter = function() {
-      this.y += 1;
+    this.y += 1;
   }
 }
 
-//fills array with products
-function createProducts() {
-  for (var index = 0; index < productNames.length; index++) {
-    productArray.push(new Product(productNames[index]));
-  }
-}
+// fills array with products
+// function createProducts() {
+//   for (var index = 0; index < productNames.length; index++) {
+//     productArray.push(new Product(productNames[index]));
+//   }
+// }
 
-createProducts();
+// createProducts();
 
 //function to create image elements, console.log clicks and append them to the section element
 function addImage(imageFileName) {
@@ -38,11 +38,11 @@ function showImages() {
   var index = Math.floor(Math.random() * 14);
   addImage("images/"+productArray[index].imageFile);
   do {
-  var index2 = Math.floor(Math.random() * 14);
+    var index2 = Math.floor(Math.random() * 14);
   } while (index2 == index);
   addImage("images/"+productArray[index2].imageFile);
   do {
-  var index3 = Math.floor(Math.random() * 14);
+    var index3 = Math.floor(Math.random() * 14);
   } while (index3 == index2 || index3 == index);
   addImage("images/"+productArray[index3].imageFile);
 }
@@ -59,7 +59,7 @@ function recordClick(event) {
   var imageNodes = document.getElementsByTagName("img")[0];
   var imageNodes2 = document.getElementsByTagName("img")[1];
   var imageNodes3 = document.getElementsByTagName("img")[2];
- 
+
   while (partialFileName !== productArray[index].imageFile) {
     index++
   }
@@ -73,10 +73,12 @@ function recordClick(event) {
   sectionNode.removeChild(imageNodes3);
   fifteenVoteTracker += 1;
   if (fifteenVoteTracker == 15) {
+    localStorage.setItem("chartInfo", JSON.stringify(productArray));
+
     document.getElementById("button-container").innerHTML ="<input type=\"button\" value=\"Show results!\" id=\"listButton\">"
     + "<input type=\"button\" value=\"Keep voting!\" id=\"reset-button\">";
     document.getElementById("listButton").addEventListener("click", createChart);
-    document.getElementById("reset-button").addEventListener("click", keepVoting);   
+    document.getElementById("reset-button").addEventListener("click", keepVoting);
   }
   else {
     showImages();
@@ -88,22 +90,49 @@ var width = 0;
 
 //function to manage the progress bar
 function move() {
-  var elem = document.getElementById("myBar"); 
+  var elem = document.getElementById("myBar");
   width += 7;
-  elem.style.width = width + '%'; 
+  elem.style.width = width + '%';
 }
 
 function keepVoting() {
   width = 0;
   fifteenVoteTracker = 0;
-   showImages();
-    document.getElementById('listButton').style.visibility = 'hidden';
-    document.getElementById('reset-button').style.visibility = 'hidden';
-    document.getElementById('chartContainer').style.visibility = 'hidden';
+  showImages();
+  document.getElementById('listButton').style.visibility = 'hidden';
+  document.getElementById('reset-button').style.visibility = 'hidden';
+  document.getElementById('chartContainer').style.visibility = 'hidden';
+}
+
+function showLocalStorage() {
+  if(localStorage.getItem("chartInfo") != null) {
+    var storedProducts = JSON.parse(localStorage.getItem("chartInfo"));
+    for (var index = 0; index < storedProducts.length; index++) {
+      var newProduct = new Product(storedProducts[index].label);
+      newProduct.y = storedProducts[index].y;
+      productArray.push(newProduct);
+
+    }
+
+  }
+
+  else {
+    // createProducts();
+    function createProducts() {
+      for (var index = 0; index < productNames.length; index++) {
+        productArray.push(new Product(productNames[index]));
+      }
+    }
+
+    createProducts();
+
+  }
+  showImages();
+
 }
 
 //shows the images once the rest of the page loads
-window.addEventListener("load", showImages);
+window.addEventListener("load", showLocalStorage);
 
 //ranker object to manage all the attributes and behaviors around a visitor's product-ranking experience
 var ranker = {}

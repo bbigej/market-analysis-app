@@ -15,15 +15,6 @@ var Product = function(productName) {
   }
 }
 
-// fills array with products
-// function createProducts() {
-//   for (var index = 0; index < productNames.length; index++) {
-//     productArray.push(new Product(productNames[index]));
-//   }
-// }
-
-// createProducts();
-
 //function to create image elements, console.log clicks and append them to the section element
 function addImage(imageFileName) {
   var container = document.getElementById("image-container");
@@ -111,27 +102,18 @@ function showLocalStorage() {
       var newProduct = new Product(storedProducts[index].label);
       newProduct.y = storedProducts[index].y;
       productArray.push(newProduct);
-
     }
-
-  }
-
-  else {
-    // createProducts();
-    function createProducts() {
+  } else {
+      function createProducts() {
       for (var index = 0; index < productNames.length; index++) {
         productArray.push(new Product(productNames[index]));
       }
     }
-
     createProducts();
-
   }
   showImages();
-
 }
 
-//shows the images once the rest of the page loads
 window.addEventListener("load", showLocalStorage);
 
 //ranker object to manage all the attributes and behaviors around a visitor's product-ranking experience

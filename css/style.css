@@ -1,5 +1,7 @@
 /* Coolors Exported Palette - coolors.co/c3c3e6-d1c8e1-bba0ca-b370b0-87255b */
 
+@import "transitions.css";
+
 body {
     background-color: rgba(209, 200, 225, 1);
 }
@@ -11,6 +13,7 @@ h1 {
 
 img {
     border: 3px solid rgba(209, 200, 225, 1);
+    opacity: 0;
 }
 
 #myProgress {

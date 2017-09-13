@@ -20,6 +20,9 @@ function addImage(imageFileName) {
   var container = document.getElementById("image-container");
   var image = document.createElement("img");
   image.src = imageFileName;
+  setTimeout(function(){
+    image.className = "fade-in";
+    }, 1000);
   image.addEventListener("click", recordClick);
   container.appendChild(image);
 }
@@ -50,6 +53,9 @@ function recordClick(event) {
   var imageNodes = document.getElementsByTagName("img")[0];
   var imageNodes2 = document.getElementsByTagName("img")[1];
   var imageNodes3 = document.getElementsByTagName("img")[2];
+  imageNodes.className = "fade-out";
+  imageNodes2.className = "fade-out";
+  imageNodes3.className = "fade-out";
 
   while (partialFileName !== productArray[index].imageFile) {
     index++
@@ -59,22 +65,24 @@ function recordClick(event) {
   console.log("Product name: " +productArray[index].label);
   console.log("Number of votes so far: " + productArray[index].y);
   var sectionNode = document.getElementById("image-container");
-  sectionNode.removeChild(imageNodes);
-  sectionNode.removeChild(imageNodes2);
-  sectionNode.removeChild(imageNodes3);
-  fifteenVoteTracker += 1;
-  if (fifteenVoteTracker == 15) {
-    localStorage.setItem("chartInfo", JSON.stringify(productArray));
-
-    document.getElementById("button-container").innerHTML ="<input type=\"button\" value=\"Show results!\" id=\"listButton\">"
-    + "<input type=\"button\" value=\"Keep voting!\" id=\"reset-button\">";
-    document.getElementById("listButton").addEventListener("click", createChart);
-    document.getElementById("reset-button").addEventListener("click", keepVoting);
-  }
-  else {
-    showImages();
-  }
-  move();
+  setTimeout(function(){
+    sectionNode.removeChild(imageNodes);
+    sectionNode.removeChild(imageNodes2);
+    sectionNode.removeChild(imageNodes3);
+    fifteenVoteTracker += 1;
+    if (fifteenVoteTracker == 15) {
+      localStorage.setItem("chartInfo", JSON.stringify(productArray));
+  
+      document.getElementById("button-container").innerHTML ="<input type=\"button\" value=\"Show results!\" id=\"listButton\">"
+      + "<input type=\"button\" value=\"Keep voting!\" id=\"reset-button\">";
+      document.getElementById("listButton").addEventListener("click", createChart);
+      document.getElementById("reset-button").addEventListener("click", keepVoting);
+    }
+    else {
+      showImages();
+    }
+    move();
+    }, 1000);
 }
 
 var width = 0;

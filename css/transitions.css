@@ -1,9 +1,23 @@
 .fade-out {
     opacity: 0;
-    transition: 2s;
+    transition: 1s;
 } 
 
 .fade-in {
     opacity: 1;
     transition: 1s;
 } 
+
+.chart-initial {
+    opacity: 0;
+} 
+
+.chart-fade-in {
+    opacity: 1;
+    transition: 2s;
+}
+
+.chart-fade-out {
+    opacity: 0;
+    transition: 2s;
+}

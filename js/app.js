@@ -22,7 +22,7 @@ function addImage(imageFileName) {
   image.src = imageFileName;
   setTimeout(function(){
     image.className = "fade-in";
-    }, 1000);
+    }, 250);
   image.addEventListener("click", recordClick);
   container.appendChild(image);
 }
@@ -82,7 +82,7 @@ function recordClick(event) {
       showImages();
     }
     move();
-    }, 1000);
+    }, 250);
 }
 
 var width = 0;
@@ -100,7 +100,7 @@ function keepVoting() {
   showImages();
   document.getElementById('listButton').style.visibility = 'hidden';
   document.getElementById('reset-button').style.visibility = 'hidden';
-  document.getElementById('chartContainer').style.visibility = 'hidden';
+  document.getElementById('chartContainer').className = "chart-fade-out";
 }
 
 function showLocalStorage() {
